@@ -6,9 +6,7 @@ on:
             - main
 
 permissions:
-    contents: read
-    pages: write
-    id-token: write
+    contents: write
 
 jobs:
     build:
@@ -27,7 +25,7 @@ jobs:
               run: flutter pub get
 
             - name: Build Flutter Web
-              run: flutter build web --release --base-href /Portfoliowm/
+              run: flutter build web --release --base-href "/Portfoliowm/"
 
             - name: Verify web build
               run: |
@@ -39,13 +37,8 @@ jobs:
                   test -f build/web/manifest.json
                   echo "All required files exist."
 
-            - name: Setup Pages
-              uses: actions/configure-pages@v5
-
-            - name: Upload website
-              uses: actions/upload-pages-artifact@v3
+            - name: Deploy to gh-pages
+              uses: peaceiris/actions-gh-pages@v4
               with:
-                  path: build/web
-
-            - name: Deploy
-              uses: actions/deploy-pages@v4
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./build/web
