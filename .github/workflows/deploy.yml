@@ -25,7 +25,7 @@ jobs:
               run: flutter pub get
 
             - name: Build Flutter Web
-              run: flutter build web --release --base-href "/Portfoliowm/"
+              run: flutter build web --release --base-href "/Portfoliomw/"
 
             - name: Verify web build
               run: |
