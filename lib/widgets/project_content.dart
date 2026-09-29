@@ -95,7 +95,7 @@ class ProjectContent extends StatelessWidget {
                 imagePath: 'assets/car.png',
                 title: 'Parked Car Finder',
                 description: 'A car-finding platform that helps users discover and compare vehicles based on their preferences.',
-                technologies: ['UI/UX', 'Figma', 'Web'],
+                technologies: ['Kotlin', 'Android Studio', 'Google Maps API'],
                 projectUrl:
                     'https://github.com/Ftmaroselers/Activity3.1_CarsLocation',
               ),
