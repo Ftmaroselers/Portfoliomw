@@ -29,6 +29,16 @@ jobs:
             - name: Build Flutter Web
               run: flutter build web --release --base-href /Portfoliowm/
 
+            - name: Verify web build
+              run: |
+                  echo "=== build/web contents ==="
+                  ls -la build/web
+                  echo "=== Checking required files ==="
+                  test -f build/web/index.html
+                  test -f build/web/flutter_bootstrap.js
+                  test -f build/web/manifest.json
+                  echo "All required files exist."
+
             - name: Setup Pages
               uses: actions/configure-pages@v5
 
